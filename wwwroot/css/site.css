@@ -1,0 +1,104 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+html, body {
+    font-family: 'Verdana', Arial, sans-serif;
+}
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/fondo1.png");
+    background-position:center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+}
+.contenedor-taller {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    border-radius: 10px;
+    background-color: rgba(123, 147, 220, 0.9);
+    padding: 10px;
+}
+.contenedor-modulos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.cont_one {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 200px;
+    border-radius: 15px;
+    background-color: rgba(17, 90, 227, 0.8);
+    margin: 20px;
+}
+.btnColeccion {
+    border-radius: 15px 15px 0 0;
+    background-color: rgba(13, 39, 120, 0.8);
+    color: white;
+    transition: font-size .5s linear;
+    text-align: center;
+    font-size: 15px;
+    width: 200px;
+    border: none;
+    cursor: pointer;
+}
+    .btnColeccion:hover {
+        background-color: rgba(3, 15, 52, 0.8);
+        font-size: 16px;
+    }
+
+.btnClean {
+    align-items: center;
+    display: flex;
+    border-radius: 15px;
+    background-color: rgba(232, 38, 38, 0.8);
+    color: white;
+    transition: font-size .5s linear;
+    text-align: center;
+    font-size: 17px;
+    justify-content: center;
+    width: 200px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+    .btnClean:hover {
+        background-color: rgba(177, 20, 20, 0.8);
+        font-size: 18px;
+    }
+.texto-by {
+    padding: 0;
+    margin: 10px 0 0 0;
+    color: rgba(62, 60, 60, 0.9);
+    text-align: end;
+}
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: rgba(39, 219, 134, 0.8);
+        background-image: none;
+    }
+    .contenedor-modulos {
+        display: flex;
+        flex-direction: column;
+    }
+    .contenedor-taller {
+        width: 68%;
+    }
+    h1{
+        font-size: 30px;
+    }
+    .btnClean{
+        width:150px;
+        margin-left:20px;
+    }
+}

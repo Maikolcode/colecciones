@@ -1,0 +1,187 @@
+﻿@page "/"
+@using tallerColecciones.Data;
+<div class="contenedor-taller">
+    <h1><strong>Taller de colecciones</strong></h1>
+    <div class="modulos">
+        <div class="contenedor-modulos">
+            <div class="cont_one">
+                <div class="btnColeccion" @onclick="collectionBasic">Caso Foreach</div>
+                <ul>
+                    @foreach (var salmon in salmonsBasic)
+                    {
+                        <li>@salmon</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="cont_one">
+                <div class="btnColeccion" @onclick="collectionForeach">Caso Normal</div>
+                <ul>
+                    @foreach (var salmon in salmons)
+                    {
+                        <li>@salmon</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="cont_one">
+                <div class="btnColeccion" @onclick="collectionFor">Caso For</div>
+                <ul>
+                    @for (int i = 0; i < salmonsTwo.Count; i++)
+                    {
+                        <li>@salmonsTwo[i]</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="cont_one">
+                <div class="btnColeccion" @onclick="collectionRemoveString">Caso Remove</div>
+                <ul>
+                    @foreach (var salmon in salmonsRemove)
+                    {
+                        <li>@salmon</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="cont_one">
+                <div class="btnColeccion" @onclick="collectionNumbers">Caso Numeros</div>
+                <ul>
+                    @foreach (var numero in numeros)
+                    {
+                        <li>@numero</li>
+                    }
+                </ul>
+            </div>
+
+            <div class="cont_one">
+                <div class="btnColeccion" @onclick="collectionGalaxy">Caso Galaxy</div>
+                <ul>
+                    @foreach (var galaxy in theGalaxies)
+                    {
+                        <li>@galaxy.name = @galaxy.MegaLightYears</li>
+                    }
+                </ul>
+            </div>
+            <div class="btnClean" @onclick="cleanAll">limpiar</div>
+        </div>
+        <p class="texto-by">By | Michael Parra</p>
+    </div>
+</div>
+@code
+{
+    List<string> salmonsBasic = new List<string>();
+    List<string> salmons = new List<string>();
+    List<string> salmonsTwo = new List<string>();
+    List<string> salmonsRemove = new List<string>();
+    List<int> numeros = new List<int>();
+    List<galaxy> theGalaxies = new List<galaxy>();
+
+    
+    public void cleanAll()
+    {
+        salmonsBasic = new List<string>();
+        salmons = new List<string>();
+        salmonsTwo = new List<string>();
+        salmonsRemove = new List<string>();
+        numeros = new List<int>();
+        theGalaxies = new List<galaxy>();
+    }
+
+    public void collectionBasic()
+    {
+
+        if (salmonsBasic.Count > 0)
+        {
+            salmonsBasic = new List<string>();
+        }
+        else
+        {
+            salmonsBasic = new List<string>();
+            salmonsBasic.Add("chinook");
+            salmonsBasic.Add("coho");
+            salmonsBasic.Add("pink");
+            salmonsBasic.Add("sockeye");
+        }
+
+    }
+
+    public void collectionForeach()
+    {
+
+        if (salmons.Count > 0)
+        {
+            salmons = new List<string>();
+        }
+        else
+        {
+            salmons = new List<string> { "chinook", "coho", "pink", "sockeye" };
+        }
+
+    }
+
+    public void collectionFor()
+    {
+        if (salmonsTwo.Any())
+        {
+            salmonsTwo = new List<string>();
+        }
+        else
+        {
+            salmonsTwo = new List<string> { "chinook2", "coho2", "pink2", "sockeye2" };
+        }
+    }
+
+    public void collectionRemoveString()
+    {
+        if (salmonsRemove.Any())
+        {
+            salmonsRemove = new List<string>();
+        }
+        else
+        {
+            salmonsRemove = new List<string> { "chinook", "coho", "pink", "sockeye" };
+            salmonsRemove.Remove("coho");
+        }
+    }
+
+    public void collectionNumbers()
+    {
+        if (numeros.Any())
+        {
+            numeros = new List<int>();
+        }
+        else
+        {
+            numeros = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            for (int i = numeros.Count - 1; i >= 0; i--)
+            {
+                if (numeros[i] % 2 == 1)
+                {
+                    numeros.RemoveAt(i);
+                }
+            }
+        }
+
+    }
+
+    public void collectionGalaxy()
+    {
+        if (theGalaxies.Any())
+        {
+            theGalaxies = new List<galaxy>();
+        }
+        else
+        {
+            theGalaxies = new List<galaxy>
+        {
+                new galaxy() { name="Tadpole", MegaLightYears=400},
+                new galaxy() { name="Pinwheel", MegaLightYears=25},
+                new galaxy() { name="Milky Way", MegaLightYears=0},
+                new galaxy() { name="Andromeda", MegaLightYears=3}
+            };
+        }
+    }
+
+}   
